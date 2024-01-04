@@ -1,0 +1,28 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+@import url("./normalize.css");
+
+.light .background-header {
+    width: 100%;
+    height: 40vh;
+    background-image: url("https://wallpapercave.com/wp/wp5162474.jpg");
+    /* background-image: url("https://images2.alphacoders.com/840/840519.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.light .background-footer{
+    width: 100%;
+    height: 60vh;
+    background-color: #fff;
+    /* background-color: #000; */
+}
+
+.light .todo-list .head button{
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
