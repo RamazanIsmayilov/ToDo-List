@@ -13,39 +13,37 @@
 </head>
 
 <body>
-    <div class="light">
+    <div id="mode" class="light">
         <div class="background-header">
             <div class="container">
                 <div class="todo-list mt-5">
                     <div class="head d-flex align-items-center justify-content-evenly">
                         <h1 class="fs-1 fw-bold">My ToDo List</h1>
-                        <button class="modebtn border-0 rounded-5 d-flex align-items-center justify-content-center"><i
-                                class="fa-regular fa-moon"></i></button>
+                        <button class="modebtn border-0 rounded-5"></button>
                     </div>
                     <div class="card w-50 mx-auto border-0">
                         <div class="card-body">
                             <form class="mt-2 d-flex gap-5">
                                 <input type="text" class="form-control" placeholder="Add your new todo">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn text-light">Add</button>
                             </form>
                         </div>
                     </div>
                     <div class="card w-50 mx-auto mt-4">
-                        <p class="mx-3 fs-2 fw-bold">ToDo</p>
-                        <input type="text" class="form-control mx-3" placeholder="Search for Todo" style="width: 80%;">
+                        <p class="mx-3 fs-2 fw-">ToDo</p>
                         <div class="card-body">
-                            <ul class="list-group">
+                            <input type="text" class="form-control" placeholder="Search for Todo">
+                            <ul class="list-group mt-4 bg-danger">
                                 <!-- <li class="list-group-item d-flex justify-content-between">Todo 1
                                     <a href="#" class="delete-item"><i class="fa-solid fa-trash-can"></i></a>
                                 </li> -->
                             </ul>
-                            <button type="submit" class="removebtn btn btn-primary mt-3">Remove</button>
+                            <button type="submit" class="removebtn btn text-light border-0 mt-3">Remove</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="background-footer"></div>
     </div>
 
 

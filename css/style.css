@@ -1,29 +1,73 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
 @import url("./normalize.css");
 
-.light .background-header {
+
+.light .todo-list .card{
+    background-color: #000;
+}
+.background-header{
     width: 100%;
-    height: 40vh;
-    background-image: url("https://wallpapercave.com/wp/wp5162474.jpg");
-    /* background-image: url("https://images2.alphacoders.com/840/840519.jpg"); */
+    height: 100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
 }
-
-.light .background-footer{
-    width: 100%;
-    height: 60vh;
-    background-color: #fff;
-    /* background-color: #000; */
+.light .background-header {
+    background-image: url("https://wallpapercave.com/wp/wp5162474.jpg");
+}
+.dark .background-header {
+    background-image: url("https://images2.alphacoders.com/840/840519.jpg");
 }
 
-.light .todo-list .head button{
+
+.dark .todo-list .head h1{
+    color: #fff;
+}
+
+.todo-list .head button{
     font-size: 30px;
     width: 40px;
     height: 40px;
-    padding: 10px;
+    padding: 22px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.light .todo-list .head button{
+    background-image: url("https://www.icegif.com/wp-content/uploads/moon-icegif-6.gif");
+}
+
+.dark .todo-list .head button{
+    background-image: url("https://i.pinimg.com/originals/f6/99/45/f6994503c6a4011c2c5149e54f3374a6.gif");
+}
+
+.todo-list .card p{
+    color: grey;
+}
+
+.light .todo-list .card input{
+    border-color: red;
+    background-color: #000;
+}
+
+.light .todo-list .card input::placeholder{
+    color: #fff;
+}
+
+.light .todo-list .card input:focus{
+    color: #fff;
+}
+
+.light .todo-list .card .card-body ul li{
+    background-color: #000;
+    color: #fff;
+    border-color: blue;
+}
+
+.todo-list .card .card-body button{
+    background-color: red;
 }
 
 .custom-alert {
