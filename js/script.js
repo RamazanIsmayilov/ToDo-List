@@ -71,6 +71,27 @@ const showAlert = (message, color) => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // * AddTodoStorage
 const getTodosFromStorage = () => {
     let todos;
