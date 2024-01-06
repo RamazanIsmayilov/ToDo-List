@@ -19,14 +19,24 @@ const changeMode = () => {
 }
 modeBtn.onclick = changeMode;
 
+
 // * Add todo
 const todoAdd = (e) =>{
     e.preventDefault();
+    const newtodo = input.value;
     if(input.value === ""){
         showAlert("Please enter todo!", "red");
     }else{
         showAlert("Todo added successfully!", "green");
-        const li = document.createElement("li");
+        addTodoUI(newtodo);
+        addTodoStorage(newtodo);
+    }
+}
+form.onsubmit = todoAdd;
+
+// * Add todoUI
+const addTodoUI = () => {
+    const li = document.createElement("li");
         li.className = "list-group-item d-flex justify-content-between";
         li.textContent = input.value;
         const a = document.createElement("a");
@@ -39,9 +49,7 @@ const todoAdd = (e) =>{
         li.appendChild(a);
         ul.appendChild(li);
         input.value = "";
-    }
 }
-form.onsubmit = todoAdd;
 
 // * Notification message
 const showAlert = (message, color) => {
@@ -52,4 +60,30 @@ const showAlert = (message, color) => {
     setTimeout(() => {
         customAlert.style.display = 'none';
     }, 1500);
+}
+
+
+
+
+
+
+
+
+
+
+// * AddTodoStorage
+const getTodosFromStorage = () => {
+    let todos;
+    if(localStorage.getItem("todos") === null){
+        todos = [];
+    }else{
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+    return todos;
+}
+
+const addTodoStorage = (newtodo) => {
+    let todos = getTodosFromStorage();
+    todos.push(newtodo);
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
