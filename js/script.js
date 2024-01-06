@@ -1,5 +1,5 @@
-// const firstCardBody = document.querySelectorAll(".card-body")[0];
-// const secondCardBody = document.querySelectorAll(".card-body")[1];
+const firstCardBody = document.querySelectorAll(".card-body")[0];
+const secondCardBody = document.querySelectorAll(".card-body")[1];
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
@@ -20,9 +20,19 @@ const changeMode = () => {
 modeBtn.onclick = changeMode;
 
 
+const loadAllTodosToUI = () => {
+    let todos = getTodosFromStorage();
+
+    todos.forEach(function(todos){
+        addTodoUI(todo);
+    })
+}
+document.addEventListener('DOMContentLoaded', loadAllTodosToUI);
+// document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
+
+
 // * Add todo
 const todoAdd = (e) =>{
-    e.preventDefault();
     const newtodo = input.value;
     if(input.value === ""){
         showAlert("Please enter todo!", "red");
@@ -31,6 +41,7 @@ const todoAdd = (e) =>{
         addTodoUI(newtodo);
         addTodoStorage(newtodo);
     }
+    e.preventDefault();
 }
 form.onsubmit = todoAdd;
 
@@ -62,124 +73,6 @@ const showAlert = (message, color) => {
     }, 1500);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // * AddTodoStorage
 const getTodosFromStorage = () => {
     let todos;
@@ -196,3 +89,4 @@ const addTodoStorage = (newtodo) => {
     todos.push(newtodo);
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
