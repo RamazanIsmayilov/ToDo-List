@@ -8,6 +8,7 @@
 .background-header{
     width: 100%;
     height: 100vh;
+    /* padding: 150px; */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

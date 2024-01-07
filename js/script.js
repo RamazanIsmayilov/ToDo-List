@@ -20,17 +20,6 @@ const changeMode = () => {
 modeBtn.onclick = changeMode;
 
 
-const loadAllTodosToUI = () => {
-    let todos = getTodosFromStorage();
-
-    todos.forEach(function(todos){
-        addTodoUI(todo);
-    })
-}
-document.addEventListener('DOMContentLoaded', loadAllTodosToUI);
-// document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
-
-
 // * Add todo
 const todoAdd = (e) =>{
     const newtodo = input.value;
@@ -90,3 +79,24 @@ const addTodoStorage = (newtodo) => {
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+// * DeleteTodoUI
+const  deleteTodoUI = (e) => {
+    if(e.target.className === "fa-solid fa-trash-can"){
+        e.target.parentElement.parentElement.remove();
+        deleteTodoStorage(e.target.parentElement.parentElement.textContent)
+        showAlert("Todo was successfully deleted!", "green");
+    }
+}
+secondCardBody.onclick = deleteTodoUI;
+
+// * DeleteTodoStorage
+const deleteTodoStorage = (deletetodo) =>{
+    let todos = getTodosFromStorage();
+
+    todos.forEach(function(todo, index){
+        if(todo === deletetodo){
+            todos.splice(index, 1);
+        }
+    });
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
