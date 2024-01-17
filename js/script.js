@@ -3,6 +3,8 @@ const secondCardBody = document.querySelectorAll(".card-body")[1];
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
+const filter = document.querySelector('.filter');
+const clearButton = document.querySelector('.clearbtn');
 const customAlert = document.querySelector('.custom-alert');
 const alertMessage = document.querySelector('.alertMessage');
 
@@ -100,3 +102,38 @@ const deleteTodoStorage = (deletetodo) =>{
     });
     localStorage.setItem("todos", JSON.stringify(todos));
 }
+
+
+// * FilterTodo
+const filterTodos = (e) =>{
+    const filterValue = e.target.value.toLowerCase();
+    const li = document.querySelectorAll('.list-group-item')
+
+    li.forEach(function(li){
+        const text = li.textContent.toLowerCase();
+        if(text.indexOf(filterValue) === -1){
+            li.setAttribute('style', "display: none !important");
+        }else{
+            li.setAttribute('style', "display: block");
+        }
+    });
+}
+filter.addEventListener("keyup", filterTodos);
+
+
+// * AllTodosClear
+const allTodosClear = () =>{
+    if(confirm("Are you sure you have deleted all ToDo's ?")){
+        while(ul.firstElementChild != null){
+            ul.removeChild(ul.firstElementChild);
+        }
+        localStorage.removeItem('todos');
+        showAlert("All Todo's was successfully deleted!", "green");
+    }else{
+        showAlert("Todos could not be deleted!", "red");
+
+    }
+}
+clearButton.onclick = allTodosClear;
+
+
